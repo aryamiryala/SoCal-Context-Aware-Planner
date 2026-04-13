@@ -4,3 +4,8 @@ __pycache__/
 *.zip
 *.json
 *.csv
+
+!data/processed/entity_resolution/*.json
+!data/processed/weather_by_location.json
+!data/processed/nps_visitation.json
+!data/processed/yelp_dataset/*.json

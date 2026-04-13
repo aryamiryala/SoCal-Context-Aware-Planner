@@ -1,0 +1,2594 @@
+[
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2024,
+    "month_num": 1,
+    "month_name": "January",
+    "season": "Winter",
+    "recreation_visitors": 251664
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2024,
+    "month_num": 2,
+    "month_name": "February",
+    "season": "Winter",
+    "recreation_visitors": 283582
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2024,
+    "month_num": 3,
+    "month_name": "March",
+    "season": "Spring",
+    "recreation_visitors": 401378
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2024,
+    "month_num": 4,
+    "month_name": "April",
+    "season": "Spring",
+    "recreation_visitors": 343806
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2024,
+    "month_num": 5,
+    "month_name": "May",
+    "season": "Spring",
+    "recreation_visitors": 259803
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2024,
+    "month_num": 6,
+    "month_name": "June",
+    "season": "Summer",
+    "recreation_visitors": 171606
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2024,
+    "month_num": 7,
+    "month_name": "July",
+    "season": "Summer",
+    "recreation_visitors": 123786
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2024,
+    "month_num": 8,
+    "month_name": "August",
+    "season": "Summer",
+    "recreation_visitors": 143049
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2024,
+    "month_num": 9,
+    "month_name": "September",
+    "season": "Fall",
+    "recreation_visitors": 157399
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2024,
+    "month_num": 10,
+    "month_name": "October",
+    "season": "Fall",
+    "recreation_visitors": 212097
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2024,
+    "month_num": 11,
+    "month_name": "November",
+    "season": "Fall",
+    "recreation_visitors": 301653
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2024,
+    "month_num": 12,
+    "month_name": "December",
+    "season": "Winter",
+    "recreation_visitors": 342051
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2023,
+    "month_num": 1,
+    "month_name": "January",
+    "season": "Winter",
+    "recreation_visitors": 285621
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2023,
+    "month_num": 2,
+    "month_name": "February",
+    "season": "Winter",
+    "recreation_visitors": 303933
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2023,
+    "month_num": 3,
+    "month_name": "March",
+    "season": "Spring",
+    "recreation_visitors": 434257
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2023,
+    "month_num": 4,
+    "month_name": "April",
+    "season": "Spring",
+    "recreation_visitors": 390555
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2023,
+    "month_num": 5,
+    "month_name": "May",
+    "season": "Spring",
+    "recreation_visitors": 263984
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2023,
+    "month_num": 6,
+    "month_name": "June",
+    "season": "Summer",
+    "recreation_visitors": 212700
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2023,
+    "month_num": 7,
+    "month_name": "July",
+    "season": "Summer",
+    "recreation_visitors": 144420
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2023,
+    "month_num": 8,
+    "month_name": "August",
+    "season": "Summer",
+    "recreation_visitors": 156172
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2023,
+    "month_num": 9,
+    "month_name": "September",
+    "season": "Fall",
+    "recreation_visitors": 189383
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2023,
+    "month_num": 10,
+    "month_name": "October",
+    "season": "Fall",
+    "recreation_visitors": 233697
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2023,
+    "month_num": 11,
+    "month_name": "November",
+    "season": "Fall",
+    "recreation_visitors": 313688
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2023,
+    "month_num": 12,
+    "month_name": "December",
+    "season": "Winter",
+    "recreation_visitors": 341994
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2022,
+    "month_num": 1,
+    "month_name": "January",
+    "season": "Winter",
+    "recreation_visitors": 277128
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2022,
+    "month_num": 2,
+    "month_name": "February",
+    "season": "Winter",
+    "recreation_visitors": 302834
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2022,
+    "month_num": 3,
+    "month_name": "March",
+    "season": "Spring",
+    "recreation_visitors": 431849
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2022,
+    "month_num": 4,
+    "month_name": "April",
+    "season": "Spring",
+    "recreation_visitors": 358701
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2022,
+    "month_num": 5,
+    "month_name": "May",
+    "season": "Spring",
+    "recreation_visitors": 228627
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2022,
+    "month_num": 6,
+    "month_name": "June",
+    "season": "Summer",
+    "recreation_visitors": 159177
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2022,
+    "month_num": 7,
+    "month_name": "July",
+    "season": "Summer",
+    "recreation_visitors": 149070
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2022,
+    "month_num": 8,
+    "month_name": "August",
+    "season": "Summer",
+    "recreation_visitors": 135137
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2022,
+    "month_num": 9,
+    "month_name": "September",
+    "season": "Fall",
+    "recreation_visitors": 150533
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2022,
+    "month_num": 10,
+    "month_name": "October",
+    "season": "Fall",
+    "recreation_visitors": 222629
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2022,
+    "month_num": 11,
+    "month_name": "November",
+    "season": "Fall",
+    "recreation_visitors": 316911
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2022,
+    "month_num": 12,
+    "month_name": "December",
+    "season": "Winter",
+    "recreation_visitors": 325698
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2021,
+    "month_num": 1,
+    "month_name": "January",
+    "season": "Winter",
+    "recreation_visitors": 229995
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2021,
+    "month_num": 2,
+    "month_name": "February",
+    "season": "Winter",
+    "recreation_visitors": 285687
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2021,
+    "month_num": 3,
+    "month_name": "March",
+    "season": "Spring",
+    "recreation_visitors": 375049
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2021,
+    "month_num": 4,
+    "month_name": "April",
+    "season": "Spring",
+    "recreation_visitors": 383735
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2021,
+    "month_num": 5,
+    "month_name": "May",
+    "season": "Spring",
+    "recreation_visitors": 285611
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2021,
+    "month_num": 6,
+    "month_name": "June",
+    "season": "Summer",
+    "recreation_visitors": 181050
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2021,
+    "month_num": 7,
+    "month_name": "July",
+    "season": "Summer",
+    "recreation_visitors": 125568
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2021,
+    "month_num": 8,
+    "month_name": "August",
+    "season": "Summer",
+    "recreation_visitors": 123163
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2021,
+    "month_num": 9,
+    "month_name": "September",
+    "season": "Fall",
+    "recreation_visitors": 163241
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2021,
+    "month_num": 10,
+    "month_name": "October",
+    "season": "Fall",
+    "recreation_visitors": 213088
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2021,
+    "month_num": 11,
+    "month_name": "November",
+    "season": "Fall",
+    "recreation_visitors": 334802
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2021,
+    "month_num": 12,
+    "month_name": "December",
+    "season": "Winter",
+    "recreation_visitors": 363411
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2020,
+    "month_num": 1,
+    "month_name": "January",
+    "season": "Winter",
+    "recreation_visitors": 268187
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2020,
+    "month_num": 2,
+    "month_name": "February",
+    "season": "Winter",
+    "recreation_visitors": 298294
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2020,
+    "month_num": 3,
+    "month_name": "March",
+    "season": "Spring",
+    "recreation_visitors": 226600
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2020,
+    "month_num": 4,
+    "month_name": "April",
+    "season": "Spring",
+    "recreation_visitors": 0
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2020,
+    "month_num": 5,
+    "month_name": "May",
+    "season": "Spring",
+    "recreation_visitors": 89831
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2020,
+    "month_num": 6,
+    "month_name": "June",
+    "season": "Summer",
+    "recreation_visitors": 184139
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2020,
+    "month_num": 7,
+    "month_name": "July",
+    "season": "Summer",
+    "recreation_visitors": 147037
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2020,
+    "month_num": 8,
+    "month_name": "August",
+    "season": "Summer",
+    "recreation_visitors": 134518
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2020,
+    "month_num": 9,
+    "month_name": "September",
+    "season": "Fall",
+    "recreation_visitors": 168181
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2020,
+    "month_num": 10,
+    "month_name": "October",
+    "season": "Fall",
+    "recreation_visitors": 253877
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2020,
+    "month_num": 11,
+    "month_name": "November",
+    "season": "Fall",
+    "recreation_visitors": 360238
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2020,
+    "month_num": 12,
+    "month_name": "December",
+    "season": "Winter",
+    "recreation_visitors": 268640
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2019,
+    "month_num": 1,
+    "month_name": "January",
+    "season": "Winter",
+    "recreation_visitors": 195993
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2019,
+    "month_num": 2,
+    "month_name": "February",
+    "season": "Winter",
+    "recreation_visitors": 261230
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2019,
+    "month_num": 3,
+    "month_name": "March",
+    "season": "Spring",
+    "recreation_visitors": 469183
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2019,
+    "month_num": 4,
+    "month_name": "April",
+    "season": "Spring",
+    "recreation_visitors": 374789
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2019,
+    "month_num": 5,
+    "month_name": "May",
+    "season": "Spring",
+    "recreation_visitors": 250928
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2019,
+    "month_num": 6,
+    "month_name": "June",
+    "season": "Summer",
+    "recreation_visitors": 187551
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2019,
+    "month_num": 7,
+    "month_name": "July",
+    "season": "Summer",
+    "recreation_visitors": 138967
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2019,
+    "month_num": 8,
+    "month_name": "August",
+    "season": "Summer",
+    "recreation_visitors": 120911
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2019,
+    "month_num": 9,
+    "month_name": "September",
+    "season": "Fall",
+    "recreation_visitors": 160294
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2019,
+    "month_num": 10,
+    "month_name": "October",
+    "season": "Fall",
+    "recreation_visitors": 233995
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2019,
+    "month_num": 11,
+    "month_name": "November",
+    "season": "Fall",
+    "recreation_visitors": 291230
+  },
+  {
+    "park_code": "JOTR",
+    "park_name": "Joshua Tree National Park",
+    "year": 2019,
+    "month_num": 12,
+    "month_name": "December",
+    "season": "Winter",
+    "recreation_visitors": 303476
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2024,
+    "month_num": 1,
+    "month_name": "January",
+    "season": "Winter",
+    "recreation_visitors": 17055
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2024,
+    "month_num": 2,
+    "month_name": "February",
+    "season": "Winter",
+    "recreation_visitors": 14888
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2024,
+    "month_num": 3,
+    "month_name": "March",
+    "season": "Spring",
+    "recreation_visitors": 23069
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2024,
+    "month_num": 4,
+    "month_name": "April",
+    "season": "Spring",
+    "recreation_visitors": 22081
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2024,
+    "month_num": 5,
+    "month_name": "May",
+    "season": "Spring",
+    "recreation_visitors": 23374
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2024,
+    "month_num": 6,
+    "month_name": "June",
+    "season": "Summer",
+    "recreation_visitors": 26180
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2024,
+    "month_num": 7,
+    "month_name": "July",
+    "season": "Summer",
+    "recreation_visitors": 32816
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2024,
+    "month_num": 8,
+    "month_name": "August",
+    "season": "Summer",
+    "recreation_visitors": 26380
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2024,
+    "month_num": 9,
+    "month_name": "September",
+    "season": "Fall",
+    "recreation_visitors": 20251
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2024,
+    "month_num": 10,
+    "month_name": "October",
+    "season": "Fall",
+    "recreation_visitors": 23694
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2024,
+    "month_num": 11,
+    "month_name": "November",
+    "season": "Fall",
+    "recreation_visitors": 17900
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2024,
+    "month_num": 12,
+    "month_name": "December",
+    "season": "Winter",
+    "recreation_visitors": 14893
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2023,
+    "month_num": 1,
+    "month_name": "January",
+    "season": "Winter",
+    "recreation_visitors": 12950
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2023,
+    "month_num": 2,
+    "month_name": "February",
+    "season": "Winter",
+    "recreation_visitors": 19726
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2023,
+    "month_num": 3,
+    "month_name": "March",
+    "season": "Spring",
+    "recreation_visitors": 25063
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2023,
+    "month_num": 4,
+    "month_name": "April",
+    "season": "Spring",
+    "recreation_visitors": 27243
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2023,
+    "month_num": 5,
+    "month_name": "May",
+    "season": "Spring",
+    "recreation_visitors": 30918
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2023,
+    "month_num": 6,
+    "month_name": "June",
+    "season": "Summer",
+    "recreation_visitors": 36635
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2023,
+    "month_num": 7,
+    "month_name": "July",
+    "season": "Summer",
+    "recreation_visitors": 38390
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2023,
+    "month_num": 8,
+    "month_name": "August",
+    "season": "Summer",
+    "recreation_visitors": 31076
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2023,
+    "month_num": 9,
+    "month_name": "September",
+    "season": "Fall",
+    "recreation_visitors": 31607
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2023,
+    "month_num": 10,
+    "month_name": "October",
+    "season": "Fall",
+    "recreation_visitors": 28935
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2023,
+    "month_num": 11,
+    "month_name": "November",
+    "season": "Fall",
+    "recreation_visitors": 27115
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2023,
+    "month_num": 12,
+    "month_name": "December",
+    "season": "Winter",
+    "recreation_visitors": 19088
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2022,
+    "month_num": 1,
+    "month_name": "January",
+    "season": "Winter",
+    "recreation_visitors": 16968
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2022,
+    "month_num": 2,
+    "month_name": "February",
+    "season": "Winter",
+    "recreation_visitors": 21175
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2022,
+    "month_num": 3,
+    "month_name": "March",
+    "season": "Spring",
+    "recreation_visitors": 25048
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2022,
+    "month_num": 4,
+    "month_name": "April",
+    "season": "Spring",
+    "recreation_visitors": 30769
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2022,
+    "month_num": 5,
+    "month_name": "May",
+    "season": "Spring",
+    "recreation_visitors": 23636
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2022,
+    "month_num": 6,
+    "month_name": "June",
+    "season": "Summer",
+    "recreation_visitors": 30138
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2022,
+    "month_num": 7,
+    "month_name": "July",
+    "season": "Summer",
+    "recreation_visitors": 37853
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2022,
+    "month_num": 8,
+    "month_name": "August",
+    "season": "Summer",
+    "recreation_visitors": 33844
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2022,
+    "month_num": 9,
+    "month_name": "September",
+    "season": "Fall",
+    "recreation_visitors": 31120
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2022,
+    "month_num": 10,
+    "month_name": "October",
+    "season": "Fall",
+    "recreation_visitors": 27647
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2022,
+    "month_num": 11,
+    "month_name": "November",
+    "season": "Fall",
+    "recreation_visitors": 27468
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2022,
+    "month_num": 12,
+    "month_name": "December",
+    "season": "Winter",
+    "recreation_visitors": 17579
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2021,
+    "month_num": 1,
+    "month_name": "January",
+    "season": "Winter",
+    "recreation_visitors": 1684
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2021,
+    "month_num": 2,
+    "month_name": "February",
+    "season": "Winter",
+    "recreation_visitors": 13176
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2021,
+    "month_num": 3,
+    "month_name": "March",
+    "season": "Spring",
+    "recreation_visitors": 13914
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2021,
+    "month_num": 4,
+    "month_name": "April",
+    "season": "Spring",
+    "recreation_visitors": 22512
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2021,
+    "month_num": 5,
+    "month_name": "May",
+    "season": "Spring",
+    "recreation_visitors": 28239
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2021,
+    "month_num": 6,
+    "month_name": "June",
+    "season": "Summer",
+    "recreation_visitors": 40977
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2021,
+    "month_num": 7,
+    "month_name": "July",
+    "season": "Summer",
+    "recreation_visitors": 41381
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2021,
+    "month_num": 8,
+    "month_name": "August",
+    "season": "Summer",
+    "recreation_visitors": 36839
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2021,
+    "month_num": 9,
+    "month_name": "September",
+    "season": "Fall",
+    "recreation_visitors": 37121
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2021,
+    "month_num": 10,
+    "month_name": "October",
+    "season": "Fall",
+    "recreation_visitors": 35612
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2021,
+    "month_num": 11,
+    "month_name": "November",
+    "season": "Fall",
+    "recreation_visitors": 30330
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2021,
+    "month_num": 12,
+    "month_name": "December",
+    "season": "Winter",
+    "recreation_visitors": 17467
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2020,
+    "month_num": 1,
+    "month_name": "January",
+    "season": "Winter",
+    "recreation_visitors": 18955
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2020,
+    "month_num": 2,
+    "month_name": "February",
+    "season": "Winter",
+    "recreation_visitors": 20318
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2020,
+    "month_num": 3,
+    "month_name": "March",
+    "season": "Spring",
+    "recreation_visitors": 13408
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2020,
+    "month_num": 4,
+    "month_name": "April",
+    "season": "Spring",
+    "recreation_visitors": 365
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2020,
+    "month_num": 5,
+    "month_name": "May",
+    "season": "Spring",
+    "recreation_visitors": 2514
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2020,
+    "month_num": 6,
+    "month_name": "June",
+    "season": "Summer",
+    "recreation_visitors": 13740
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2020,
+    "month_num": 7,
+    "month_name": "July",
+    "season": "Summer",
+    "recreation_visitors": 15323
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2020,
+    "month_num": 8,
+    "month_name": "August",
+    "season": "Summer",
+    "recreation_visitors": 18462
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2020,
+    "month_num": 9,
+    "month_name": "September",
+    "season": "Fall",
+    "recreation_visitors": 18147
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2020,
+    "month_num": 10,
+    "month_name": "October",
+    "season": "Fall",
+    "recreation_visitors": 26302
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2020,
+    "month_num": 11,
+    "month_name": "November",
+    "season": "Fall",
+    "recreation_visitors": 16745
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2020,
+    "month_num": 12,
+    "month_name": "December",
+    "season": "Winter",
+    "recreation_visitors": 3011
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2019,
+    "month_num": 1,
+    "month_name": "January",
+    "season": "Winter",
+    "recreation_visitors": 9193
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2019,
+    "month_num": 2,
+    "month_name": "February",
+    "season": "Winter",
+    "recreation_visitors": 22263
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2019,
+    "month_num": 3,
+    "month_name": "March",
+    "season": "Spring",
+    "recreation_visitors": 34951
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2019,
+    "month_num": 4,
+    "month_name": "April",
+    "season": "Spring",
+    "recreation_visitors": 39218
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2019,
+    "month_num": 5,
+    "month_name": "May",
+    "season": "Spring",
+    "recreation_visitors": 39070
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2019,
+    "month_num": 6,
+    "month_name": "June",
+    "season": "Summer",
+    "recreation_visitors": 44915
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2019,
+    "month_num": 7,
+    "month_name": "July",
+    "season": "Summer",
+    "recreation_visitors": 47581
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2019,
+    "month_num": 8,
+    "month_name": "August",
+    "season": "Summer",
+    "recreation_visitors": 49793
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2019,
+    "month_num": 9,
+    "month_name": "September",
+    "season": "Fall",
+    "recreation_visitors": 38681
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2019,
+    "month_num": 10,
+    "month_name": "October",
+    "season": "Fall",
+    "recreation_visitors": 36691
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2019,
+    "month_num": 11,
+    "month_name": "November",
+    "season": "Fall",
+    "recreation_visitors": 25212
+  },
+  {
+    "park_code": "CHIS",
+    "park_name": "Channel Islands National Park",
+    "year": 2019,
+    "month_num": 12,
+    "month_name": "December",
+    "season": "Winter",
+    "recreation_visitors": 22062
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2024,
+    "month_num": 1,
+    "month_name": "January",
+    "season": "Winter",
+    "recreation_visitors": 51443
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2024,
+    "month_num": 2,
+    "month_name": "February",
+    "season": "Winter",
+    "recreation_visitors": 37217
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2024,
+    "month_num": 3,
+    "month_name": "March",
+    "season": "Spring",
+    "recreation_visitors": 43829
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2024,
+    "month_num": 4,
+    "month_name": "April",
+    "season": "Spring",
+    "recreation_visitors": 53083
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2024,
+    "month_num": 5,
+    "month_name": "May",
+    "season": "Spring",
+    "recreation_visitors": 64247
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2024,
+    "month_num": 6,
+    "month_name": "June",
+    "season": "Summer",
+    "recreation_visitors": 47915
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2024,
+    "month_num": 7,
+    "month_name": "July",
+    "season": "Summer",
+    "recreation_visitors": 54490
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2024,
+    "month_num": 8,
+    "month_name": "August",
+    "season": "Summer",
+    "recreation_visitors": 52163
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2024,
+    "month_num": 9,
+    "month_name": "September",
+    "season": "Fall",
+    "recreation_visitors": 55991
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2024,
+    "month_num": 10,
+    "month_name": "October",
+    "season": "Fall",
+    "recreation_visitors": 66672
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2024,
+    "month_num": 11,
+    "month_name": "November",
+    "season": "Fall",
+    "recreation_visitors": 56805
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2024,
+    "month_num": 12,
+    "month_name": "December",
+    "season": "Winter",
+    "recreation_visitors": 55890
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2023,
+    "month_num": 1,
+    "month_name": "January",
+    "season": "Winter",
+    "recreation_visitors": 62289
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2023,
+    "month_num": 2,
+    "month_name": "February",
+    "season": "Winter",
+    "recreation_visitors": 64835
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2023,
+    "month_num": 3,
+    "month_name": "March",
+    "season": "Spring",
+    "recreation_visitors": 65834
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2023,
+    "month_num": 4,
+    "month_name": "April",
+    "season": "Spring",
+    "recreation_visitors": 69260
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2023,
+    "month_num": 5,
+    "month_name": "May",
+    "season": "Spring",
+    "recreation_visitors": 82057
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2023,
+    "month_num": 6,
+    "month_name": "June",
+    "season": "Summer",
+    "recreation_visitors": 66553
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2023,
+    "month_num": 7,
+    "month_name": "July",
+    "season": "Summer",
+    "recreation_visitors": 61765
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2023,
+    "month_num": 8,
+    "month_name": "August",
+    "season": "Summer",
+    "recreation_visitors": 50709
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2023,
+    "month_num": 9,
+    "month_name": "September",
+    "season": "Fall",
+    "recreation_visitors": 64784
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2023,
+    "month_num": 10,
+    "month_name": "October",
+    "season": "Fall",
+    "recreation_visitors": 52494
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2023,
+    "month_num": 11,
+    "month_name": "November",
+    "season": "Fall",
+    "recreation_visitors": 60961
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2023,
+    "month_num": 12,
+    "month_name": "December",
+    "season": "Winter",
+    "recreation_visitors": 57811
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2022,
+    "month_num": 1,
+    "month_name": "January",
+    "season": "Winter",
+    "recreation_visitors": 73078
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2022,
+    "month_num": 2,
+    "month_name": "February",
+    "season": "Winter",
+    "recreation_visitors": 71688
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2022,
+    "month_num": 3,
+    "month_name": "March",
+    "season": "Spring",
+    "recreation_visitors": 76134
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2022,
+    "month_num": 4,
+    "month_name": "April",
+    "season": "Spring",
+    "recreation_visitors": 72916
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2022,
+    "month_num": 5,
+    "month_name": "May",
+    "season": "Spring",
+    "recreation_visitors": 82842
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2022,
+    "month_num": 6,
+    "month_name": "June",
+    "season": "Summer",
+    "recreation_visitors": 55298
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2022,
+    "month_num": 7,
+    "month_name": "July",
+    "season": "Summer",
+    "recreation_visitors": 61599
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2022,
+    "month_num": 8,
+    "month_name": "August",
+    "season": "Summer",
+    "recreation_visitors": 70109
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2022,
+    "month_num": 9,
+    "month_name": "September",
+    "season": "Fall",
+    "recreation_visitors": 48830
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2022,
+    "month_num": 10,
+    "month_name": "October",
+    "season": "Fall",
+    "recreation_visitors": 64965
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2022,
+    "month_num": 11,
+    "month_name": "November",
+    "season": "Fall",
+    "recreation_visitors": 60648
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2022,
+    "month_num": 12,
+    "month_name": "December",
+    "season": "Winter",
+    "recreation_visitors": 57110
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2021,
+    "month_num": 1,
+    "month_name": "January",
+    "season": "Winter",
+    "recreation_visitors": 84730
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2021,
+    "month_num": 2,
+    "month_name": "February",
+    "season": "Winter",
+    "recreation_visitors": 74963
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2021,
+    "month_num": 3,
+    "month_name": "March",
+    "season": "Spring",
+    "recreation_visitors": 76883
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2021,
+    "month_num": 4,
+    "month_name": "April",
+    "season": "Spring",
+    "recreation_visitors": 88727
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2021,
+    "month_num": 5,
+    "month_name": "May",
+    "season": "Spring",
+    "recreation_visitors": 78606
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2021,
+    "month_num": 6,
+    "month_name": "June",
+    "season": "Summer",
+    "recreation_visitors": 64485
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2021,
+    "month_num": 7,
+    "month_name": "July",
+    "season": "Summer",
+    "recreation_visitors": 59475
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2021,
+    "month_num": 8,
+    "month_name": "August",
+    "season": "Summer",
+    "recreation_visitors": 64009
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2021,
+    "month_num": 9,
+    "month_name": "September",
+    "season": "Fall",
+    "recreation_visitors": 58379
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2021,
+    "month_num": 10,
+    "month_name": "October",
+    "season": "Fall",
+    "recreation_visitors": 66395
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2021,
+    "month_num": 11,
+    "month_name": "November",
+    "season": "Fall",
+    "recreation_visitors": 57108
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2021,
+    "month_num": 12,
+    "month_name": "December",
+    "season": "Winter",
+    "recreation_visitors": 56691
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2020,
+    "month_num": 1,
+    "month_name": "January",
+    "season": "Winter",
+    "recreation_visitors": 81385
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2020,
+    "month_num": 2,
+    "month_name": "February",
+    "season": "Winter",
+    "recreation_visitors": 62760
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2020,
+    "month_num": 3,
+    "month_name": "March",
+    "season": "Spring",
+    "recreation_visitors": 46401
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2020,
+    "month_num": 4,
+    "month_name": "April",
+    "season": "Spring",
+    "recreation_visitors": 0
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2020,
+    "month_num": 5,
+    "month_name": "May",
+    "season": "Spring",
+    "recreation_visitors": 49181
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2020,
+    "month_num": 6,
+    "month_name": "June",
+    "season": "Summer",
+    "recreation_visitors": 69538
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2020,
+    "month_num": 7,
+    "month_name": "July",
+    "season": "Summer",
+    "recreation_visitors": 90349
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2020,
+    "month_num": 8,
+    "month_name": "August",
+    "season": "Summer",
+    "recreation_visitors": 56167
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2020,
+    "month_num": 9,
+    "month_name": "September",
+    "season": "Fall",
+    "recreation_visitors": 61274
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2020,
+    "month_num": 10,
+    "month_name": "October",
+    "season": "Fall",
+    "recreation_visitors": 62938
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2020,
+    "month_num": 11,
+    "month_name": "November",
+    "season": "Fall",
+    "recreation_visitors": 81811
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2020,
+    "month_num": 12,
+    "month_name": "December",
+    "season": "Winter",
+    "recreation_visitors": 71772
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2019,
+    "month_num": 1,
+    "month_name": "January",
+    "season": "Winter",
+    "recreation_visitors": 50606
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2019,
+    "month_num": 2,
+    "month_name": "February",
+    "season": "Winter",
+    "recreation_visitors": 54601
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2019,
+    "month_num": 3,
+    "month_name": "March",
+    "season": "Spring",
+    "recreation_visitors": 71201
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2019,
+    "month_num": 4,
+    "month_name": "April",
+    "season": "Spring",
+    "recreation_visitors": 75278
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2019,
+    "month_num": 5,
+    "month_name": "May",
+    "season": "Spring",
+    "recreation_visitors": 84594
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2019,
+    "month_num": 6,
+    "month_name": "June",
+    "season": "Summer",
+    "recreation_visitors": 69118
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2019,
+    "month_num": 7,
+    "month_name": "July",
+    "season": "Summer",
+    "recreation_visitors": 58938
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2019,
+    "month_num": 8,
+    "month_name": "August",
+    "season": "Summer",
+    "recreation_visitors": 54930
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2019,
+    "month_num": 9,
+    "month_name": "September",
+    "season": "Fall",
+    "recreation_visitors": 50474
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2019,
+    "month_num": 10,
+    "month_name": "October",
+    "season": "Fall",
+    "recreation_visitors": 54416
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2019,
+    "month_num": 11,
+    "month_name": "November",
+    "season": "Fall",
+    "recreation_visitors": 46000
+  },
+  {
+    "park_code": "SAMO",
+    "park_name": "Santa Monica Mountains NRA",
+    "year": 2019,
+    "month_num": 12,
+    "month_name": "December",
+    "season": "Winter",
+    "recreation_visitors": 37410
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2024,
+    "month_num": 1,
+    "month_name": "January",
+    "season": "Winter",
+    "recreation_visitors": 69337
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2024,
+    "month_num": 2,
+    "month_name": "February",
+    "season": "Winter",
+    "recreation_visitors": 68470
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2024,
+    "month_num": 3,
+    "month_name": "March",
+    "season": "Spring",
+    "recreation_visitors": 76270
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2024,
+    "month_num": 4,
+    "month_name": "April",
+    "season": "Spring",
+    "recreation_visitors": 70368
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2024,
+    "month_num": 5,
+    "month_name": "May",
+    "season": "Spring",
+    "recreation_visitors": 72474
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2024,
+    "month_num": 6,
+    "month_name": "June",
+    "season": "Summer",
+    "recreation_visitors": 71603
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2024,
+    "month_num": 7,
+    "month_name": "July",
+    "season": "Summer",
+    "recreation_visitors": 85570
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2024,
+    "month_num": 8,
+    "month_name": "August",
+    "season": "Summer",
+    "recreation_visitors": 71606
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2024,
+    "month_num": 9,
+    "month_name": "September",
+    "season": "Fall",
+    "recreation_visitors": 60852
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2024,
+    "month_num": 10,
+    "month_name": "October",
+    "season": "Fall",
+    "recreation_visitors": 61024
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2024,
+    "month_num": 11,
+    "month_name": "November",
+    "season": "Fall",
+    "recreation_visitors": 69161
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2024,
+    "month_num": 12,
+    "month_name": "December",
+    "season": "Winter",
+    "recreation_visitors": 69177
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2023,
+    "month_num": 1,
+    "month_name": "January",
+    "season": "Winter",
+    "recreation_visitors": 66877
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2023,
+    "month_num": 2,
+    "month_name": "February",
+    "season": "Winter",
+    "recreation_visitors": 61197
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2023,
+    "month_num": 3,
+    "month_name": "March",
+    "season": "Spring",
+    "recreation_visitors": 71687
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2023,
+    "month_num": 4,
+    "month_name": "April",
+    "season": "Spring",
+    "recreation_visitors": 69863
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2023,
+    "month_num": 5,
+    "month_name": "May",
+    "season": "Spring",
+    "recreation_visitors": 64722
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2023,
+    "month_num": 6,
+    "month_name": "June",
+    "season": "Summer",
+    "recreation_visitors": 69461
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2023,
+    "month_num": 7,
+    "month_name": "July",
+    "season": "Summer",
+    "recreation_visitors": 85806
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2023,
+    "month_num": 8,
+    "month_name": "August",
+    "season": "Summer",
+    "recreation_visitors": 66824
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2023,
+    "month_num": 9,
+    "month_name": "September",
+    "season": "Fall",
+    "recreation_visitors": 57209
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2023,
+    "month_num": 10,
+    "month_name": "October",
+    "season": "Fall",
+    "recreation_visitors": 59478
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2023,
+    "month_num": 11,
+    "month_name": "November",
+    "season": "Fall",
+    "recreation_visitors": 66801
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2023,
+    "month_num": 12,
+    "month_name": "December",
+    "season": "Winter",
+    "recreation_visitors": 70222
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2022,
+    "month_num": 1,
+    "month_name": "January",
+    "season": "Winter",
+    "recreation_visitors": 68589
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2022,
+    "month_num": 2,
+    "month_name": "February",
+    "season": "Winter",
+    "recreation_visitors": 63019
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2022,
+    "month_num": 3,
+    "month_name": "March",
+    "season": "Spring",
+    "recreation_visitors": 67546
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2022,
+    "month_num": 4,
+    "month_name": "April",
+    "season": "Spring",
+    "recreation_visitors": 63833
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2022,
+    "month_num": 5,
+    "month_name": "May",
+    "season": "Spring",
+    "recreation_visitors": 61847
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2022,
+    "month_num": 6,
+    "month_name": "June",
+    "season": "Summer",
+    "recreation_visitors": 65354
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2022,
+    "month_num": 7,
+    "month_name": "July",
+    "season": "Summer",
+    "recreation_visitors": 80622
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2022,
+    "month_num": 8,
+    "month_name": "August",
+    "season": "Summer",
+    "recreation_visitors": 63474
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2022,
+    "month_num": 9,
+    "month_name": "September",
+    "season": "Fall",
+    "recreation_visitors": 52568
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2022,
+    "month_num": 10,
+    "month_name": "October",
+    "season": "Fall",
+    "recreation_visitors": 52312
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2022,
+    "month_num": 11,
+    "month_name": "November",
+    "season": "Fall",
+    "recreation_visitors": 56916
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2022,
+    "month_num": 12,
+    "month_name": "December",
+    "season": "Winter",
+    "recreation_visitors": 71996
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2021,
+    "month_num": 1,
+    "month_name": "January",
+    "season": "Winter",
+    "recreation_visitors": 54403
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2021,
+    "month_num": 2,
+    "month_name": "February",
+    "season": "Winter",
+    "recreation_visitors": 46375
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2021,
+    "month_num": 3,
+    "month_name": "March",
+    "season": "Spring",
+    "recreation_visitors": 53878
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2021,
+    "month_num": 4,
+    "month_name": "April",
+    "season": "Spring",
+    "recreation_visitors": 52971
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2021,
+    "month_num": 5,
+    "month_name": "May",
+    "season": "Spring",
+    "recreation_visitors": 57045
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2021,
+    "month_num": 6,
+    "month_name": "June",
+    "season": "Summer",
+    "recreation_visitors": 63133
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2021,
+    "month_num": 7,
+    "month_name": "July",
+    "season": "Summer",
+    "recreation_visitors": 75630
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2021,
+    "month_num": 8,
+    "month_name": "August",
+    "season": "Summer",
+    "recreation_visitors": 62118
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2021,
+    "month_num": 9,
+    "month_name": "September",
+    "season": "Fall",
+    "recreation_visitors": 44119
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2021,
+    "month_num": 10,
+    "month_name": "October",
+    "season": "Fall",
+    "recreation_visitors": 58366
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2021,
+    "month_num": 11,
+    "month_name": "November",
+    "season": "Fall",
+    "recreation_visitors": 57567
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2021,
+    "month_num": 12,
+    "month_name": "December",
+    "season": "Winter",
+    "recreation_visitors": 58008
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2020,
+    "month_num": 1,
+    "month_name": "January",
+    "season": "Winter",
+    "recreation_visitors": 70854
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2020,
+    "month_num": 2,
+    "month_name": "February",
+    "season": "Winter",
+    "recreation_visitors": 63403
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2020,
+    "month_num": 3,
+    "month_name": "March",
+    "season": "Spring",
+    "recreation_visitors": 28509
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2020,
+    "month_num": 4,
+    "month_name": "April",
+    "season": "Spring",
+    "recreation_visitors": 0
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2020,
+    "month_num": 5,
+    "month_name": "May",
+    "season": "Spring",
+    "recreation_visitors": 11801
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2020,
+    "month_num": 6,
+    "month_name": "June",
+    "season": "Summer",
+    "recreation_visitors": 39365
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2020,
+    "month_num": 7,
+    "month_name": "July",
+    "season": "Summer",
+    "recreation_visitors": 59814
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2020,
+    "month_num": 8,
+    "month_name": "August",
+    "season": "Summer",
+    "recreation_visitors": 55970
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2020,
+    "month_num": 9,
+    "month_name": "September",
+    "season": "Fall",
+    "recreation_visitors": 48676
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2020,
+    "month_num": 10,
+    "month_name": "October",
+    "season": "Fall",
+    "recreation_visitors": 47287
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2020,
+    "month_num": 11,
+    "month_name": "November",
+    "season": "Fall",
+    "recreation_visitors": 52531
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2020,
+    "month_num": 12,
+    "month_name": "December",
+    "season": "Winter",
+    "recreation_visitors": 45668
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2019,
+    "month_num": 1,
+    "month_name": "January",
+    "season": "Winter",
+    "recreation_visitors": 6806
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2019,
+    "month_num": 2,
+    "month_name": "February",
+    "season": "Winter",
+    "recreation_visitors": 56248
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2019,
+    "month_num": 3,
+    "month_name": "March",
+    "season": "Spring",
+    "recreation_visitors": 76140
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2019,
+    "month_num": 4,
+    "month_name": "April",
+    "season": "Spring",
+    "recreation_visitors": 72306
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2019,
+    "month_num": 5,
+    "month_name": "May",
+    "season": "Spring",
+    "recreation_visitors": 66020
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2019,
+    "month_num": 6,
+    "month_name": "June",
+    "season": "Summer",
+    "recreation_visitors": 70746
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2019,
+    "month_num": 7,
+    "month_name": "July",
+    "season": "Summer",
+    "recreation_visitors": 91365
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2019,
+    "month_num": 8,
+    "month_name": "August",
+    "season": "Summer",
+    "recreation_visitors": 77624
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2019,
+    "month_num": 9,
+    "month_name": "September",
+    "season": "Fall",
+    "recreation_visitors": 62052
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2019,
+    "month_num": 10,
+    "month_name": "October",
+    "season": "Fall",
+    "recreation_visitors": 58619
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2019,
+    "month_num": 11,
+    "month_name": "November",
+    "season": "Fall",
+    "recreation_visitors": 62287
+  },
+  {
+    "park_code": "CABR",
+    "park_name": "Cabrillo National Monument",
+    "year": 2019,
+    "month_num": 12,
+    "month_name": "December",
+    "season": "Winter",
+    "recreation_visitors": 61272
+  }
+]
