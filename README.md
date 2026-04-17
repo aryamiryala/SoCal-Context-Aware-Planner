@@ -1,96 +1,294 @@
-# SoCal-Context-Aware-Planner
+# SoCal Context-Aware Trip Planner
 
-# Data Collection Summary
+>Built by Arya Miryala & Saavani Vaidya
 
-## Sources
-
-### 1. Yelp Open Dataset
-- **URL:** https://business.yelp.com/data/resources/open-dataset/
-- **How:** Downloaded academic dataset, filtered to SoCal bounding box (lat 32.5–35.0, lon -120.5 to -114.0) with outdoor-relevant categories
-- **Script:** `src/ingestion/yelp_ingest.py`
-- **Output:**
-  - `yelp_socal_businesses.json` — 116 businesses (heavily Santa Barbara)
-  - `yelp_socal_reviews.json` — 4,956 reviews (used for NLP pipeline)
-  - `yelp_socal_checkins.json` — 113 checkins (used as CrowdLevel proxy)
-- **Note:** Santa Barbara skew meant Yelp is used primarily for review text in the NLP pipeline, not as the primary location source
+A constraint-aware destination recommender for Southern California, powered by a Neo4j knowledge graph. Unlike generic AI itinerary generators, this system reasons across weather, crowd levels, activity type, distance, and ratings simultaneously to surface realistic, explainable recommendations.
 
 ---
 
-### 2. Google Places API
-- **URL:** https://developers.google.com/maps/documentation/places/web-service
-- **How:** Queried Nearby Search + Place Details endpoints across 10 SoCal search centers (LA, SD, Palm Springs, Big Bear, Joshua Tree, Laguna Beach, Ventura, Santa Monica, Malibu, Santa Barbara) with 7 outdoor keywords (hiking, beach, park, outdoor, nature, camping, trail)
-- **Script:** `src/ingestion/google_places.py`
-- **Cleaning:** `src/processing/clean_google_places.py` — dropped places with no rating/reviews, filtered to relevant outdoor types, applied bounding box
-- **Output:** `google_places_cleaned.json` — 1,309 places
-- **Fields captured:** name, place_id, lat/lng, types, rating, user_ratings_total, price_level, reviews (up to 5 full texts), opening_hours
+## Project Overview
+
+Most travel planners produce generic results that ignore real-world constraints — a chatbot might suggest hiking in the rain or visiting a beach in winter. This system addresses that gap by encoding contextual relationships in a knowledge graph, enabling multi-hop queries like:
+
+> *"Find hiking destinations within 50 miles of San Diego in April that are historically not crowded and have an average temperature above 60°F."*
+
+The answer is not stored explicitly — it is **derived through multi-step reasoning** across linked semantic types.
 
 ---
 
-### 3. Open-Meteo Historical Weather API
-- **URL:** https://archive-api.open-meteo.com/v1/archive
-- **How:** Queried daily weather for each location's lat/lng for full year 2024, then aggregated to monthly averages in Python
-- **Script:** `src/ingestion/open_meteo.py`
-- **Output:** `weather_by_location.json` — 16,884 records (1,407 locations × 12 months)
-- **Fields captured:** temp_max_c, temp_min_c, temp_mean_c, precipitation_mm, windspeed_max_kmh, month_name, season
-- **Note:** No API key required. Free with no rate limit (used 1.5–3s sleep between requests to stay under limit)
+## Architecture
+
+### Ontology — 11 Semantic Types, 17 Edge Types
+
+| Subject | Predicate | Object | Source |
+|---|---|---|---|
+| Location | HAS_ACTIVITY | Activity | Google Places / Yelp |
+| Location | HAS_COST_TIER | Cost | Google Places |
+| Location | EXPERIENCES_WEATHER | WeatherCondition | Open-Meteo API |
+| Location | HAS_HISTORICAL_CROWDS | CrowdLevel | NPS Visitor Stats |
+| Location | HAS_CROWD_LEVEL | CrowdLevel | Google Ratings Proxy |
+| Location | HAS_REVIEW_EVIDENCE | ReviewEvidence | Google / Yelp Reviews |
+| WeatherCondition | OCCURS_IN_MONTH | Month | Open-Meteo API |
+| WeatherCondition | TYPICAL_IN_SEASON | Season | Derived |
+| CrowdLevel | RECORDED_IN_MONTH | Month | NPS Stats |
+| Month | BELONGS_TO_SEASON | Season | System Logic |
+| Activity | FEASIBLE_IN_SEASON | Season | System Logic |
+| ReviewEvidence | INDICATES_CROWDING | CrowdLevel | NLP Pipeline |
+| TravelPreference | MATCHES_ACTIVITY | Activity | User Input |
+| UserQuery | HAS_PREFERENCE | TravelPreference | Streamlit GUI |
+| UserQuery | MAX_DISTANCE_LIMIT | Literal | Streamlit GUI |
+| UserQuery | HAS_TARGET_MONTH | Month | Streamlit GUI |
+
+### Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Graph Database | Neo4j (Aura or local) |
+| Graph Query | Cypher |
+| Ontology Serialization | rdflib (Python) |
+| Data Ingestion | Python + pandas |
+| Geocoding | geopy + Nominatim (OpenStreetMap) |
+| GUI | Streamlit |
+| Distance Computation | Haversine formula + Neo4j `point.distance()` |
 
 ---
 
-### 4. NPS Visitor Use Statistics
-- **URL:** https://irma.nps.gov/Stats/
-- **How:** Manually downloaded monthly visitation CSVs for each park from the IRMA portal (Recreation Visits By Month report, 2019–2024)
-- **Script:** `src/ingestion/nps_stats.py`
-- **Parks collected:**
-  - Joshua Tree National Park (JOTR)
-  - Channel Islands National Park (CHIS)
-  - Santa Monica Mountains NRA (SAMO)
-  - Cabrillo National Monument (CABR)
-- **Output:** `nps_visitation.json` — 288 records (4 parks × 6 years × 12 months)
-- **Fields captured:** park_code, park_name, year, month_num, month_name, season, recreation_visitors
+## Data Sources
 
----
-
-## Entity Resolution (Yelp + Google)
-- **Script:** `src/processing/entity_resolution.py`
-- **Algorithm:** Fuzzy name matching (threshold 85/100) + Haversine distance (threshold 200m)
-- **Results:**
-  - Merged nodes: 17 (Yelp + Google matched)
-  - Yelp-only nodes: 99
-  - Google-only nodes: 1,292
-  - **Total location nodes: 1,408**
-- **Match quality:** 16/17 scored 100/100 name similarity, 1 scored 85 (verified correct)
-
----
-
-## Course Requirements
-
-| Requirement | Target | Actual |
+| Source | What It Provides | Coverage |
 |---|---|---|
-| Distinct sources | 3+ | 4 ✅ |
-| Total documents | 5,000+ | 6,494 ✅ |
-| Structured source 500+ records | 1 | Google Places 1,309 ✅ |
+| **Google Places API** | Location names, types, ratings, reviews, coordinates | ~1,400 SoCal locations |
+| **Yelp Open Dataset** | Historical reviews and check-ins | Santa Barbara area |
+| **Open-Meteo Historical API** | Monthly avg temp, precipitation, wind speed | All locations (by lat/lng) |
+| **NPS Visitor Use Statistics** | Official monthly visitor headcounts | Joshua Tree, Channel Islands, Santa Monica Mtns, Cabrillo |
 
-**Document count breakdown:**
-- Google Places: 1,309
-- Yelp businesses: 116
-- Yelp reviews: 4,956
-- Yelp checkins: 113
-- **Total: 6,494**
+### SoCal Bounding Box
+
+```python
+LAT_MIN, LAT_MAX = 32.5, 35.0
+LON_MIN, LON_MAX = -120.5, -114.0
+```
+
+### Entity Resolution Data
+
+The processed and entity-resolved location data (`merged_locations.json`, `google_only_locations.json`, `yelp_only_locations.json`, `weather_by_location.json`, `nps_visitation.json`) is stored in the GitHub repository under:
+
+```
+data/processed/entity_resolution/
+```
+
+Clone the repo to access this data — it is not regenerated at runtime.
 
 ---
 
-## Processed Files
+## Project Structure
 
 ```
-data/processed/
-├── entity_resolution/
-│   ├── merged_locations.json       ← 17 records
-│   ├── yelp_only_locations.json    ← 99 records
-│   └── google_only_locations.json  ← 1,292 records
-├── weather_by_location.json        ← 16,884 records
-├── nps_visitation.json             ← 288 records
-└── yelp_dataset/
-    ├── yelp_socal_businesses.json  ← 116 records
-    ├── yelp_socal_reviews.json     ← 4,956 records
-    └── yelp_socal_checkins.json    ← 113 records
+SoCal-Context-Aware-Planner/
+├── src/
+│   ├── app.py                          # Streamlit GUI
+│   └── graph/
+│       └── load_graph.py               # Neo4j graph loader
+├── data/
+│   ├── raw/                            # Raw API responses (gitignored)
+│   └── processed/
+│       └── entity_resolution/          # Resolved & merged location data
+│           ├── merged_locations.json
+│           ├── google_only_locations.json
+│           ├── yelp_only_locations.json
+│           ├── weather_by_location.json
+│           └── nps_visitation.json
+├── requirements.txt
+├── .env                                # Neo4j credentials
+└── README.md
 ```
+
+---
+
+## Local Setup
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/<your-repo>/SoCal-Context-Aware-Planner.git
+cd SoCal-Context-Aware-Planner
+```
+
+### 2. Create and Activate a Virtual Environment
+
+```bash
+python -m venv venv
+source venv/bin/activate        # Mac/Linux
+venv\Scripts\activate           # Windows
+```
+
+### 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Set Up Neo4j
+
+You can use either **Neo4j Aura** (free cloud instance) or a **local Neo4j Desktop** installation.
+
+- Create a database named `socal`
+- Note your connection URI, username, and password
+
+### 5. Configure Environment Variables
+
+Create a `.env` file in the project root:
+
+```
+NEO4J_URI=neo4j+s://your-instance.databases.neo4j.io
+NEO4J_USER=neo4j
+NEO4J_PASSWORD=your-password
+```
+
+For a local Neo4j instance:
+
+```
+NEO4J_URI=bolt://localhost:7687
+NEO4J_USER=neo4j
+NEO4J_PASSWORD=your-password
+```
+
+### 6. Load the Knowledge Graph
+
+Run from the **project root** (not from inside `src/`):
+
+```bash
+python src/graph/load_graph.py
+```
+
+This will:
+- Create constraints and indexes
+- Load Month and Season nodes (12 months → 4 seasons)
+- Load Cost tier nodes
+- Load all Activity nodes with season feasibility edges
+- Load ~1,408 Location nodes with `distanceFromOrigin` from LA
+- Load ReviewEvidence nodes from Google and Yelp reviews
+- Load WeatherCondition nodes from Open-Meteo data
+- Load NPS CrowdLevel nodes for national parks
+
+Expected output:
+```
+=== Loading SoCal KG into Neo4j ===
+Creating constraints... Done.
+Loading Month and Season nodes... Done.
+Loading Cost nodes... Done.
+Loading Activity nodes... Loaded 8 activity types.
+Loading Location nodes... Done. 1408 locations loaded.
+Loading ReviewEvidence nodes... Done. 11245 reviews loaded.
+Loading WeatherCondition nodes... Done. 16884 weather records loaded.
+Loading NPS CrowdLevel nodes... Done. X NPS records loaded.
+=== Done! KG loaded successfully ===
+```
+
+### 7. Run the Streamlit App
+
+```bash
+streamlit run src/app.py
+```
+
+Open your browser to `http://localhost:8501`.
+
+---
+
+## Using the App
+
+1. **Select a Month** — filters destinations by historical weather for that month
+2. **Choose Activity Types** — Beach, Hiking, Park, Nature, Camping, Attraction, Cultural, Recreation
+3. **Enter an Origin Address** — any SoCal address; geocoded via OpenStreetMap. Must fall within the SoCal bounding box
+4. **Set Max Distance** — radius in miles from your origin
+5. **Weather Preference** — Any / Mild (55°F+) / Warm (65°F+) / Hot (75°F+)
+6. **Crowd Tolerance** — Low, Moderate, High, Very High
+7. **Min Rating** — filters by Google star rating
+8. **Click Find Destinations** — runs the multi-hop Cypher query
+9. **Click "Read all reviews →"** on any card to see all available reviews for that location
+10. **Click "← Back to results"** to return to the results list
+
+---
+
+## Graph Stats (as loaded)
+
+| Metric | Count |
+|---|---|
+| Location nodes | 1,408 |
+| ReviewEvidence nodes | ~11,245 |
+| WeatherCondition nodes | ~16,884 |
+| NPS parks with official crowd data | 4 |
+| Activity types | 8 |
+| Months | 12 |
+| Seasons | 4 |
+
+---
+
+## Activity Classification
+
+Activities are assigned via two mechanisms:
+
+**Google Places type taxonomy:**
+
+| Google Type | Activity Node |
+|---|---|
+| `park` | Park |
+| `campground`, `rv_park` | Camping |
+| `natural_feature` | Nature |
+| `tourist_attraction`, `travel_agency` | Attraction |
+| `hiking_area` | Hiking |
+| `beach` | Beach |
+| `museum`, `aquarium`, `zoo` | Cultural |
+| `stadium`, `amusement_park` | Recreation |
+
+**Name-based keyword enrichment** (catches Yelp locations without Google types):
+
+| Keywords in Name | Activity |
+|---|---|
+| beach, shore, coast, surf | Beach |
+| trail, trailhead, hike, canyon, mountain, forest, peak, summit | Hiking |
+| park, preserve, reserve, nature | Nature |
+| adventure, kayak, paddle, dive, boat | Recreation |
+| museum, courthouse, carousel, castle, historic | Cultural |
+
+---
+
+## Crowd Data — Important Caveat
+
+The app uses **two crowd signals** with different reliability:
+
+| Signal | Edge | Source | What It Means |
+|---|---|---|---|
+| **NPS Official** | `HAS_HISTORICAL_CROWDS` | NPS Visitor Use Statistics | Actual monthly headcount — trustworthy |
+| **Review Volume Proxy** | `HAS_CROWD_LEVEL` | Google `user_ratings_total` | Number of reviews, not visitors — a popularity proxy |
+
+Review volume is a weak proxy: a location with few reviews is labeled "Low" crowd, but that means it's obscure, not necessarily quiet. The GUI labels the source on every result card so users understand which signal is being shown.
+
+**No real-time crowd data is used.** All crowd information reflects historical monthly averages.
+
+---
+
+## Known Limitations
+
+- **Duplicate location nodes** — some locations (e.g. Santa Monica State Beach) appear multiple times across Google and Yelp source files with different IDs. MERGE-based deduplication by name+coordinates is a planned improvement.
+- **Cost data sparse** — Google Places `price_level` is rarely returned for outdoor locations; nearly all locations default to "Free." Cost filtering is not exposed in the GUI.
+- **Beach and Hiking coverage** — Google Places does not reliably tag locations with `beach` or `hiking_area` types. These activity edges are primarily assigned via name-based keyword matching.
+- **NPS coverage limited to 4 parks** — Joshua Tree, Channel Islands, Santa Monica Mountains NRA, and Cabrillo National Monument.
+- **37 unclassifiable locations** — Yelp-sourced locations whose names contain no recognizable activity keywords and have no Google type tags.
+
+---
+
+## Requirements
+
+
+Can be found in `requirements.txt`.
+
+---
+
+## Evaluation Plan
+
+Per the project proposal, system correctness is measured across three areas:
+
+1. **Entity Resolution Accuracy** — random sample of 50 Location nodes manually verified for correct cross-source mapping (Yelp ↔ Google ↔ NPS)
+2. **NLP Pipeline Precision/Recall** — 100 manually annotated reviews tested for constraint extraction (e.g. "overcrowded", "closed", "seasonal")
+3. **Constraint Satisfaction Rate** — 20 randomly generated multi-hop queries verified that all returned destinations satisfy the temporal, weather, and activity constraints simultaneously
