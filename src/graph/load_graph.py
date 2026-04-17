@@ -3,6 +3,7 @@ import json, os
 from pathlib import Path
 from neo4j import GraphDatabase
 from dotenv import load_dotenv
+import math
 
 load_dotenv()
 BASE_DIR = Path(__file__).resolve().parents[2]
@@ -80,21 +81,33 @@ def load_cost_nodes():
         """, {"tier": tier, "label": label})
     print("  Done.")
 
+# ── Distance Computation ──────────────────────────────────────────────────────
+
+def haversine_miles(lat1, lng1, lat2=34.0522, lng2=-118.2437):
+    """Distance in miles from a point to LA (default origin)."""
+    R = 3958.8
+    phi1, phi2 = math.radians(lat1), math.radians(lat2)
+    dphi = math.radians(lat2 - lat1)
+    dlambda = math.radians(lng2 - lng1)
+    a = math.sin(dphi/2)**2 + math.cos(phi1)*math.cos(phi2)*math.sin(dlambda/2)**2
+    return R * 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
+
 # ── Activity nodes ────────────────────────────────────────────────────────────
 
 ACTIVITY_TYPE_MAP = {
-    "park":             "Park",
-    "campground":       "Camping",
-    "rv_park":          "Camping",
-    "natural_feature":  "Nature",
+    "park":               "Park",
+    "campground":         "Camping",
+    "rv_park":            "Camping",
+    "natural_feature":    "Nature",
     "tourist_attraction": "Attraction",
-    "hiking_area":      "Hiking",
-    "beach":            "Beach",
-    "museum":           "Cultural",
-    "aquarium":         "Cultural",
-    "zoo":              "Cultural",
-    "stadium":          "Recreation",
-    "amusement_park":   "Recreation",
+    "hiking_area":        "Hiking",
+    "beach":              "Beach",
+    "museum":             "Cultural",
+    "aquarium":           "Cultural",
+    "zoo":                "Cultural",
+    "stadium":            "Recreation",
+    "amusement_park":     "Recreation",
+    "travel_agency":      "Attraction",
 }
 
 SEASON_FEASIBILITY = {
@@ -110,6 +123,18 @@ SEASON_FEASIBILITY = {
 
 def load_activities():
     print("Loading Activity nodes...")
+
+    # Explicitly seed Beach and Hiking since no Google type reliably maps to them
+    for activity in ["Beach", "Hiking"]:
+        run_query("MERGE (a:Activity {name: $name})", {"name": activity})
+        for season in SEASON_FEASIBILITY.get(activity, []):
+            run_query("""
+                MATCH (a:Activity {name: $activity})
+                MATCH (s:Season {name: $season})
+                MERGE (a)-[:FEASIBLE_IN_SEASON]->(s)
+            """, {"activity": activity, "season": season})
+
+    # Discover remaining activity types from location data
     activities = set()
     for fname in ["merged_locations.json", "google_only_locations.json", "yelp_only_locations.json"]:
         for loc in load_json(fname):
@@ -118,17 +143,15 @@ def load_activities():
                     activities.add(ACTIVITY_TYPE_MAP[t])
 
     for activity in activities:
-        run_query("""
-            MERGE (a:Activity {name: $name})
-        """, {"name": activity})
-        # link to feasible seasons
+        run_query("MERGE (a:Activity {name: $name})", {"name": activity})
         for season in SEASON_FEASIBILITY.get(activity, []):
             run_query("""
                 MATCH (a:Activity {name: $activity})
                 MATCH (s:Season {name: $season})
                 MERGE (a)-[:FEASIBLE_IN_SEASON]->(s)
             """, {"activity": activity, "season": season})
-    print(f"  Loaded {len(activities)} activity types.")
+
+    print(f"  Loaded {len(activities) + 2} activity types.")
 
 # ── Location nodes ────────────────────────────────────────────────────────────
 
@@ -144,6 +167,14 @@ def get_price_tier(loc):
         return int(loc["price_level"])
     return 0  # default free for outdoor locations
 
+def assign_activity(location_id, activity_name):
+    """Helper to create a HAS_ACTIVITY edge from a Location to an Activity node."""
+    run_query("""
+        MATCH (l:Location {location_id: $location_id})
+        MATCH (a:Activity {name: $activity})
+        MERGE (l)-[:HAS_ACTIVITY]->(a)
+    """, {"location_id": location_id, "activity": activity_name})
+
 def load_locations():
     print("Loading Location nodes...")
     count = 0
@@ -157,16 +188,17 @@ def load_locations():
             # create Location node
             run_query("""
                 MERGE (l:Location {location_id: $location_id})
-                  SET l.name             = $name,
-                      l.address          = $address,
-                      l.lat              = $lat,
-                      l.lng              = $lng,
-                      l.city             = $city,
-                      l.source           = $source,
-                      l.google_rating    = $google_rating,
-                      l.yelp_stars       = $yelp_stars,
-                      l.review_count     = $review_count,
-                      l.opening_hours    = $opening_hours
+                  SET l.name               = $name,
+                      l.address            = $address,
+                      l.lat                = $lat,
+                      l.lng                = $lng,
+                      l.city               = $city,
+                      l.source             = $source,
+                      l.google_rating      = $google_rating,
+                      l.yelp_stars         = $yelp_stars,
+                      l.review_count       = $review_count,
+                      l.opening_hours      = $opening_hours,
+                      l.distanceFromOrigin = $distance
             """, {
                 "location_id":   location_id,
                 "name":          loc["name"],
@@ -179,25 +211,44 @@ def load_locations():
                 "yelp_stars":    loc.get("yelp_stars"),
                 "review_count":  loc.get("user_ratings_total") or loc.get("yelp_review_count"),
                 "opening_hours": str(loc.get("opening_hours")) if loc.get("opening_hours") else None,
+                "distance":      round(haversine_miles(loc["lat"], loc["lng"]), 1)
             })
 
-            # link to Activity
+            # ── Activity edges via Google type map ────────────────────────────
             for t in loc.get("types", []):
                 if t in ACTIVITY_TYPE_MAP:
-                    run_query("""
-                        MATCH (l:Location {location_id: $location_id})
-                        MATCH (a:Activity {name: $activity})
-                        MERGE (l)-[:HAS_ACTIVITY]->(a)
-                    """, {"location_id": location_id, "activity": ACTIVITY_TYPE_MAP[t]})
+                    assign_activity(location_id, ACTIVITY_TYPE_MAP[t])
 
-            # link to Cost
+            # ── Extended name-based activity enrichment ───────────────────────
+            name = loc["name"].lower()
+
+            if any(w in name for w in ["beach", "shore", "coast", "surf"]):
+                assign_activity(location_id, "Beach")
+
+            if any(w in name for w in ["trail", "trailhead", "hike", "hiking",
+                                        "canyon", "mountain", "forest",
+                                        "wilderness", "peak", "summit"]):
+                assign_activity(location_id, "Hiking")
+
+            if any(w in name for w in ["park", "preserve", "reserve", "nature"]):
+                assign_activity(location_id, "Nature")
+
+            if any(w in name for w in ["adventure", "kayak", "paddle", "dive",
+                                        "snorkel", "boat", "jet ski", "surf school"]):
+                assign_activity(location_id, "Recreation")
+
+            if any(w in name for w in ["museum", "courthouse", "carousel",
+                                        "castle", "historic"]):
+                assign_activity(location_id, "Cultural")
+
+            # ── Cost edge ─────────────────────────────────────────────────────
             run_query("""
                 MATCH (l:Location {location_id: $location_id})
                 MATCH (c:Cost {tier: $tier})
                 MERGE (l)-[:HAS_COST_TIER]->(c)
             """, {"location_id": location_id, "tier": price_tier})
 
-            # create CrowdLevel node and link
+            # ── CrowdLevel node + edge (Google ratings proxy) ─────────────────
             crowd_id = f"{location_id}_crowd"
             run_query("""
                 MERGE (cl:CrowdLevel {crowd_id: $crowd_id})
@@ -208,9 +259,9 @@ def load_locations():
                 MATCH (l:Location {location_id: $location_id})
                 MERGE (l)-[:HAS_CROWD_LEVEL]->(cl)
             """, {
-                "crowd_id":   crowd_id,
-                "level":      crowd_label,
-                "total":      loc.get("user_ratings_total"),
+                "crowd_id":    crowd_id,
+                "level":       crowd_label,
+                "total":       loc.get("user_ratings_total"),
                 "location_id": location_id
             })
 
