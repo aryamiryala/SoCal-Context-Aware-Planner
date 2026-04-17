@@ -12,3 +12,5 @@ rdflib==7.6.0
 requests==2.33.1
 six==1.17.0
 urllib3==2.6.3
+streamlit>=1.32.0
+geopy>=2.4.1
