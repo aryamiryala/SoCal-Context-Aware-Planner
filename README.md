@@ -87,8 +87,20 @@ Clone the repo to access this data — it is not regenerated at runtime.
 SoCal-Context-Aware-Planner/
 ├── src/
 │   ├── app.py                          # Streamlit GUI
-│   └── graph/
-│       └── load_graph.py               # Neo4j graph loader
+│   ├── graph/
+│   │   └── load_graph.py               # Loads data into Neo4j KG
+│   ├── ingestion/
+│   │   ├── google_places.py            # Google Places ingestion
+│   │   ├── yelp_ingest.py              # Yelp business ingestion
+│   │   ├── yelp_reviews_ingest.py      # Yelp review ingestion
+│   │   ├── yelp_checkin_ingest.py      # Yelp check-in data
+│   │   ├── open_meteo.py               # Weather data ingestion
+│   │   └── nps_stats.py                # NPS crowd data ingestion
+│   ├── processing/
+│   │   ├── entity_resolution.py        # Merge Google + Yelp locations
+│   │   ├── clean_google_places.py      # Data cleaning
+│   │   └── crowd_nlp.py                # NLP crowd detection from reviews
+│
 ├── data/
 │   ├── raw/                            # Raw API responses (gitignored)
 │   └── processed/
@@ -98,6 +110,7 @@ SoCal-Context-Aware-Planner/
 │           ├── yelp_only_locations.json
 │           ├── weather_by_location.json
 │           └── nps_visitation.json
+│
 ├── requirements.txt
 ├── .env                                # Neo4j credentials
 └── README.md
