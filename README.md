@@ -198,7 +198,36 @@ Loading NPS CrowdLevel nodes... Done. X NPS records loaded.
 === Done! KG loaded successfully ===
 ```
 
-### 7. Run the Streamlit App
+### 7. Run the Crowd NLP Pipeline
+
+```bash
+python src/processing/crowd_nlp.py
+```
+
+This step enriches the knowledge graph by extracting crowd signals directly from review text.
+
+It will:
+- Process ReviewEvidence nodes stored in Neo4j
+- Apply a keyword-based NLP classifier to detect crowd-related language
+- Assign crowd levels: Low, Moderate, High, Very High
+- Create new graph relationships:
+- (ReviewEvidence)-[:INDICATES_CROWDING]->(CrowdLevel)
+
+Expected output:
+```
+=== Running crowd NLP pipeline ===
+Fetched XXXXX reviews
+Processed XXXXX/XXXXX reviews...
+=== Crowd NLP complete ===
+Labeled reviews: XXXX
+Low: XXXX
+Moderate: XXXX
+High: XXXX
+Very High: XXXX
+```
+Note: This step must be run after loading the knowledge graph, since it operates on ReviewEvidence nodes already stored in Neo4j.
+
+### 8. Run the Streamlit App
 
 ```bash
 streamlit run src/app.py
@@ -268,14 +297,15 @@ Activities are assigned via two mechanisms:
 
 ## Crowd Data — Important Caveat
 
-The app uses **two crowd signals** with different reliability:
+The app uses **three crowd signals** with different reliability:
 
 | Signal | Edge | Source | What It Means |
 |---|---|---|---|
 | **NPS Official** | `HAS_HISTORICAL_CROWDS` | NPS Visitor Use Statistics | Actual monthly headcount — trustworthy |
 | **Review Volume Proxy** | `HAS_CROWD_LEVEL` | Google `user_ratings_total` | Number of reviews, not visitors — a popularity proxy |
+| **Review NLP Signal** | `INDICATES_CROWDING `| Yelp Reviews | Direct textual evidence of crowd perception from user reviews (keyword matching) |
 
-Review volume is a weak proxy: a location with few reviews is labeled "Low" crowd, but that means it's obscure, not necessarily quiet. The GUI labels the source on every result card so users understand which signal is being shown.
+Review volume is a weak proxy: a location with few reviews is labeled "Low" crowd, but that means it's obscure, not necessarily quiet. To address this limitation, we incorporate an NLP-based crowd signal extracted directly from review text. This provides more granular and interpretable evidence of crowd conditions (e.g., "packed", "quiet", "manageable"). The GUI labels the source on every result card so users understand which signal is being shown.
 
 **No real-time crowd data is used.** All crowd information reflects historical monthly averages.
 
