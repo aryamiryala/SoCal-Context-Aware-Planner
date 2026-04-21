@@ -251,10 +251,11 @@ def geocode_address(address: str):
     return lat, lng, location.address
 
 # ── Core recommendation query ─────────────────────────────────────────────────
+
+#NEW VERSION WITH REVIEW NLP INTEGRATION
 def get_recommendations(month, activities, origin_lat, origin_lng,
                          max_distance_miles, min_temp_f, crowd_levels, min_rating):
     min_temp_c = (min_temp_f - 32) * 5 / 9
-    # Convert miles to meters for Neo4j point.distance()
     max_distance_m = max_distance_miles * 1609.34
 
     activity_list = activities if activities else [
@@ -274,35 +275,75 @@ def get_recommendations(month, activities, origin_lat, origin_lng,
           ) <= $max_distance_m
       AND (l.google_rating IS NULL OR l.google_rating >= $min_rating)
 
+    // 1) Official NPS historical crowd for that month
     OPTIONAL MATCH (l)-[:HAS_HISTORICAL_CROWDS]->(nps_c:CrowdLevel)-[:RECORDED_IN_MONTH]->(m)
+
+    // 2) NLP review crowd signal aggregated across reviews
+    OPTIONAL MATCH (l)-[:HAS_REVIEW_EVIDENCE]->(:ReviewEvidence)-[:INDICATES_CROWDING]->(nlp_c:CrowdLevel)
+    WHERE nlp_c.source = 'review_nlp'
+
+    // 3) Google ratings proxy fallback
     OPTIONAL MATCH (l)-[:HAS_CROWD_LEVEL]->(proxy_c:CrowdLevel)
 
-    WITH l, a, w,
-         coalesce(nps_c.level, proxy_c.level)                             AS crowd_label,
-         coalesce(nps_c.source, proxy_c.source)                           AS crowd_source,
-         coalesce(nps_c.recreation_visitors, proxy_c.user_ratings_total)  AS crowd_signal,
+    WITH l, a, w, nps_c, proxy_c,
+         collect(nlp_c.level) AS nlp_levels,
          point.distance(
              point({latitude: l.lat, longitude: l.lng}),
              point({latitude: $origin_lat, longitude: $origin_lng})
-         ) / 1609.34                                                       AS dist_miles
+         ) / 1609.34 AS dist_miles
+
+    // Aggregate NLP review crowd into one label per location
+    WITH l, a, w, nps_c, proxy_c, dist_miles,
+         size([x IN nlp_levels WHERE x = 'Low']) AS nlp_low,
+         size([x IN nlp_levels WHERE x = 'Moderate']) AS nlp_mod,
+         size([x IN nlp_levels WHERE x = 'High']) AS nlp_high,
+         size([x IN nlp_levels WHERE x = 'Very High']) AS nlp_vhigh
+
+    WITH l, a, w, nps_c, proxy_c, dist_miles,
+         CASE
+           WHEN (nlp_vhigh >= nlp_high AND nlp_vhigh >= nlp_mod AND nlp_vhigh >= nlp_low AND nlp_vhigh > 0) THEN 'Very High'
+           WHEN (nlp_high >= nlp_mod AND nlp_high >= nlp_low AND nlp_high > 0) THEN 'High'
+           WHEN (nlp_mod >= nlp_low AND nlp_mod > 0) THEN 'Moderate'
+           WHEN (nlp_low > 0) THEN 'Low'
+           ELSE NULL
+         END AS nlp_label,
+         (nlp_low + nlp_mod + nlp_high + nlp_vhigh) AS nlp_review_count
+
+    // Priority: NPS > NLP > Google proxy
+    WITH l, a, w, dist_miles,
+         CASE
+           WHEN nps_c.level IS NOT NULL THEN nps_c.level
+           WHEN nlp_label IS NOT NULL THEN nlp_label
+           ELSE proxy_c.level
+         END AS crowd_label,
+         CASE
+           WHEN nps_c.level IS NOT NULL THEN nps_c.source
+           WHEN nlp_label IS NOT NULL THEN 'review_nlp'
+           ELSE proxy_c.source
+         END AS crowd_source,
+         CASE
+           WHEN nps_c.level IS NOT NULL THEN nps_c.recreation_visitors
+           WHEN nlp_label IS NOT NULL THEN nlp_review_count
+           ELSE proxy_c.user_ratings_total
+         END AS crowd_signal
 
     WHERE crowd_label IN $crowd_levels
 
     WITH l,
-         collect(DISTINCT a.name)                           AS activities,
+         collect(DISTINCT a.name) AS activities,
          round((avg(w.temp_mean_c) * 9/5 + 32) * 10) / 10 AS avg_temp_f,
          crowd_label,
          crowd_source,
-         avg(crowd_signal)                                  AS crowd_signal,
-         min(dist_miles)                                    AS miles_from_origin
+         avg(crowd_signal) AS crowd_signal,
+         min(dist_miles) AS miles_from_origin
 
-    RETURN l.name               AS name,
-           l.address            AS address,
-           l.city               AS city,
-           l.lat                AS lat,
-           l.lng                AS lng,
-           l.google_rating      AS rating,
-           l.yelp_stars         AS yelp_stars,
+    RETURN l.name AS name,
+           l.address AS address,
+           l.city AS city,
+           l.lat AS lat,
+           l.lng AS lng,
+           l.google_rating AS rating,
+           l.yelp_stars AS yelp_stars,
            activities,
            avg_temp_f,
            crowd_label,
@@ -310,19 +351,27 @@ def get_recommendations(month, activities, origin_lat, origin_lng,
            toInteger(crowd_signal) AS crowd_signal,
            round(miles_from_origin * 10) / 10 AS miles
 
-    ORDER BY crowd_signal ASC, avg_temp_f DESC
+    ORDER BY
+        CASE crowd_label
+            WHEN 'Low' THEN 1
+            WHEN 'Moderate' THEN 2
+            WHEN 'High' THEN 3
+            WHEN 'Very High' THEN 4
+            ELSE 5
+        END ASC,
+        avg_temp_f DESC
     LIMIT 30
     """
 
     return run_query(query, {
-        "month":          month,
-        "activities":     activity_list,
-        "min_temp_c":     min_temp_c,
-        "origin_lat":     origin_lat,
-        "origin_lng":     origin_lng,
+        "month": month,
+        "activities": activity_list,
+        "min_temp_c": min_temp_c,
+        "origin_lat": origin_lat,
+        "origin_lng": origin_lng,
         "max_distance_m": max_distance_m,
-        "crowd_levels":   crowd_levels,
-        "min_rating":     min_rating,
+        "crowd_levels": crowd_levels,
+        "min_rating": min_rating,
     })
 
 def get_reviews(location_name, limit=1):
@@ -375,10 +424,14 @@ CROWD_BADGE = {
 CROWD_EMOJI = {
     "Low": "🟢", "Moderate": "🟡", "High": "🟠", "Very High": "🔴", "Unknown": "⚪"
 }
+
+#NEW VERSION WITH REVIEW NLP INTEGRATION: 
 SOURCE_LABEL = {
     "nps_official":   "NPS Official Data",
     "google_ratings": "Review Volume Proxy",
+    "review_nlp":     "Review Text NLP",
 }
+
 MONTHS = [
     "January","February","March","April","May","June",
     "July","August","September","October","November","December"
