@@ -41,6 +41,7 @@ HIGH_PATTERNS = [
     r"\bbusy\b",
     r"\blots of people\b",
     r"\bso many people\b",
+    r"\btoo many people\b",
     r"\btons of people\b",
     r"\blong line\b",
     r"\blong lines\b",
@@ -49,23 +50,26 @@ HIGH_PATTERNS = [
     r"\bhard to find parking\b",
     r"\bparking was hard\b",
     r"\bfull parking lot\b",
+    r"\bmany people\b"
 ]
 
 MODERATE_PATTERNS = [
     r"\bsomewhat busy\b",
     r"\ba bit busy\b",
+    r"\ba little busy\b",
     r"\bmoderately busy\b",
     r"\ba little crowded\b",
     r"\ba bit crowded\b",
     r"\bmoderately crowded\b",
     r"\bnot too crowded\b",
+    r"\bnot very crowded\b",
     r"\bnot overly crowded\b",
     r"\bmanageable crowd\b",
     r"\bdecent crowd\b",
-    r"\bkind of busy\b"
-    r"\bkind of crowded\b"
-    r"\bslightly crowded\b"
-    r"\bnot that crowded\b"
+    r"\bkind of busy\b",
+    r"\bkind of crowded\b",
+    r"\bslightly crowded\b",
+    r"\bnot that crowded\b",
     r"\bmanageable\b"
 ]
 
@@ -85,6 +89,9 @@ LOW_PATTERNS = [
     r"\bno line\b",
     r"\bno lines\b",
     r"\bno wait\b",
+    r"\bwasn’t a lot of people\b",
+    r"\bonly ones\b",
+    r"\bcalm\b"
 ]
 
 # Extra negation-safe phrases to check before generic "busy"/"crowded"
@@ -92,11 +99,13 @@ NEGATED_LOW_PRIORITY = [
     r"\bnot crowded\b",
     r"\bnot busy\b",
     r"\bwasn't crowded\b",
+    r"\bwithout the crowds\b",
     r"\bwasn't busy\b",
     r"\bwas not crowded\b",
     r"\bwas not busy\b",
     r"\bnot too crowded\b",
     r"\bnot overly crowded\b",
+    r"\bkeeps it from being too busy\b"
 ]
 
 # -------------------------------- Text classification ---------------------------------------------
