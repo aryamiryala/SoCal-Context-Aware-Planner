@@ -302,8 +302,8 @@ The app uses **three crowd signals** with different reliability:
 | Signal | Edge | Source | What It Means |
 |---|---|---|---|
 | **NPS Official** | `HAS_HISTORICAL_CROWDS` | NPS Visitor Use Statistics | Actual monthly headcount — trustworthy |
-| **Review Volume Proxy** | `HAS_CROWD_LEVEL` | Google `user_ratings_total` | Number of reviews, not visitors — a popularity proxy |
 | **Review NLP Signal** | `INDICATES_CROWDING `| Yelp Reviews | Direct textual evidence of crowd perception from user reviews (keyword matching) |
+| **Review Volume Proxy** | `HAS_CROWD_LEVEL` | Google `user_ratings_total` | Number of reviews, not visitors — a popularity proxy |
 
 Review volume is a weak proxy: a location with few reviews is labeled "Low" crowd, but that means it's obscure, not necessarily quiet. To address this limitation, we incorporate an NLP-based crowd signal extracted directly from review text. This provides more granular and interpretable evidence of crowd conditions (e.g., "packed", "quiet", "manageable"). The GUI labels the source on every result card so users understand which signal is being shown.
 
