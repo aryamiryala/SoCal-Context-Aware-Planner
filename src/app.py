@@ -154,7 +154,6 @@ html, body, [class*="css"] { font-family: 'DM Sans', sans-serif; }
     border-bottom: 1px solid rgba(79,195,247,0.15);
 }
 
-/* Address validation feedback boxes */
 .addr-ok {
     background: rgba(76,175,80,0.1); border: 1px solid rgba(76,175,80,0.3);
     border-radius: 8px; padding: 0.5rem 0.8rem;
@@ -169,7 +168,6 @@ html, body, [class*="css"] { font-family: 'DM Sans', sans-serif; }
 .empty-state { text-align: center; padding: 3rem 1rem; color: #4a7a94; }
 .empty-state .icon { font-size: 3rem; margin-bottom: 0.75rem; }
 
-/* ── All buttons: bright blue gradient ── */
 .stButton > button {
     background: linear-gradient(135deg, #0288d1, #4fc3f7) !important;
     color: #ffffff !important;
@@ -188,7 +186,6 @@ html, body, [class*="css"] { font-family: 'DM Sans', sans-serif; }
     opacity: 0.88 !important;
     color: #ffffff !important;
 }
-/* Find Destinations button: full width */
 .search-btn .stButton > button {
     width: 100% !important;
     border-radius: 8px !important;
@@ -222,13 +219,8 @@ def run_query(query, params=None):
 # ── Geocoding ─────────────────────────────────────────────────────────────────
 @st.cache_data(show_spinner=False)
 def geocode_address(address: str):
-    """
-    Returns (lat, lng, display_name) or raises ValueError with a user-friendly message.
-    Validates the result falls within the SoCal bounding box.
-    """
     geolocator = Nominatim(user_agent="socal_trip_planner_kg")
     try:
-        # Try the address as-is first, then with ", CA" appended as fallback
         location = geolocator.geocode(address, timeout=10)
         if location is None:
             location = geolocator.geocode(f"{address}, CA", timeout=10)
@@ -251,8 +243,6 @@ def geocode_address(address: str):
     return lat, lng, location.address
 
 # ── Core recommendation query ─────────────────────────────────────────────────
-
-#NEW VERSION WITH REVIEW NLP INTEGRATION
 def get_recommendations(month, activities, origin_lat, origin_lng,
                          max_distance_miles, min_temp_f, crowd_levels, min_rating):
     min_temp_c = (min_temp_f - 32) * 5 / 9
@@ -292,11 +282,10 @@ def get_recommendations(month, activities, origin_lat, origin_lng,
              point({latitude: $origin_lat, longitude: $origin_lng})
          ) / 1609.34 AS dist_miles
 
-    // Aggregate NLP review crowd into one label per location
     WITH l, a, w, nps_c, proxy_c, dist_miles,
-         size([x IN nlp_levels WHERE x = 'Low']) AS nlp_low,
+         size([x IN nlp_levels WHERE x = 'Low'])      AS nlp_low,
          size([x IN nlp_levels WHERE x = 'Moderate']) AS nlp_mod,
-         size([x IN nlp_levels WHERE x = 'High']) AS nlp_high,
+         size([x IN nlp_levels WHERE x = 'High'])     AS nlp_high,
          size([x IN nlp_levels WHERE x = 'Very High']) AS nlp_vhigh
 
     WITH l, a, w, nps_c, proxy_c, dist_miles,
@@ -313,67 +302,59 @@ def get_recommendations(month, activities, origin_lat, origin_lng,
     WITH l, a, w, dist_miles,
          CASE
            WHEN nps_c.level IS NOT NULL THEN nps_c.level
-           WHEN nlp_label IS NOT NULL THEN nlp_label
+           WHEN nlp_label IS NOT NULL   THEN nlp_label
            ELSE proxy_c.level
          END AS crowd_label,
          CASE
            WHEN nps_c.level IS NOT NULL THEN nps_c.source
-           WHEN nlp_label IS NOT NULL THEN 'review_nlp'
+           WHEN nlp_label IS NOT NULL   THEN 'review_nlp'
            ELSE proxy_c.source
          END AS crowd_source,
          CASE
            WHEN nps_c.level IS NOT NULL THEN nps_c.recreation_visitors
-           WHEN nlp_label IS NOT NULL THEN nlp_review_count
+           WHEN nlp_label IS NOT NULL   THEN nlp_review_count
            ELSE proxy_c.user_ratings_total
          END AS crowd_signal
 
     WHERE crowd_label IN $crowd_levels
 
     WITH l,
-         collect(DISTINCT a.name) AS activities,
+         collect(DISTINCT a.name)                           AS activities,
          round((avg(w.temp_mean_c) * 9/5 + 32) * 10) / 10 AS avg_temp_f,
          crowd_label,
          crowd_source,
-         avg(crowd_signal) AS crowd_signal,
-         min(dist_miles) AS miles_from_origin
+         avg(crowd_signal)                                  AS crowd_signal,
+         min(dist_miles)                                    AS miles_from_origin
 
-    RETURN l.name AS name,
-           l.address AS address,
-           l.city AS city,
-           l.lat AS lat,
-           l.lng AS lng,
+    RETURN l.name          AS name,
+           l.address       AS address,
+           l.city          AS city,
+           l.lat           AS lat,
+           l.lng           AS lng,
            l.google_rating AS rating,
-           l.yelp_stars AS yelp_stars,
+           l.yelp_stars    AS yelp_stars,
            activities,
            avg_temp_f,
            crowd_label,
            crowd_source,
-           toInteger(crowd_signal) AS crowd_signal,
-           round(miles_from_origin * 10) / 10 AS miles
+           toInteger(crowd_signal)              AS crowd_signal,
+           round(miles_from_origin * 10) / 10  AS miles
 
-    ORDER BY
-        CASE crowd_label
-            WHEN 'Low' THEN 1
-            WHEN 'Moderate' THEN 2
-            WHEN 'High' THEN 3
-            WHEN 'Very High' THEN 4
-            ELSE 5
-        END ASC,
-        avg_temp_f DESC
-    LIMIT 30
+    ORDER BY avg_temp_f DESC, miles_from_origin ASC
     """
 
     return run_query(query, {
-        "month": month,
-        "activities": activity_list,
-        "min_temp_c": min_temp_c,
-        "origin_lat": origin_lat,
-        "origin_lng": origin_lng,
+        "month":          month,
+        "activities":     activity_list,
+        "min_temp_c":     min_temp_c,
+        "origin_lat":     origin_lat,
+        "origin_lng":     origin_lng,
         "max_distance_m": max_distance_m,
-        "crowd_levels": crowd_levels,
-        "min_rating": min_rating,
+        "crowd_levels":   crowd_levels,
+        "min_rating":     min_rating,
     })
 
+# ── Helper queries ────────────────────────────────────────────────────────────
 def get_reviews(location_name, limit=1):
     query = """
     MATCH (l:Location {name: $name})-[:HAS_REVIEW_EVIDENCE]->(r:ReviewEvidence)
@@ -418,20 +399,20 @@ def get_graph_stats():
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 CROWD_BADGE = {
-    "Low": "badge-crowd-low", "Moderate": "badge-crowd-mod",
-    "High": "badge-crowd-high", "Very High": "badge-crowd-vhigh", "Unknown": "badge",
+    "Low":      "badge-crowd-low",
+    "Moderate": "badge-crowd-mod",
+    "High":     "badge-crowd-high",
+    "Very High":"badge-crowd-vhigh",
+    "Unknown":  "badge",
 }
 CROWD_EMOJI = {
     "Low": "🟢", "Moderate": "🟡", "High": "🟠", "Very High": "🔴", "Unknown": "⚪"
 }
-
-#NEW VERSION WITH REVIEW NLP INTEGRATION: 
 SOURCE_LABEL = {
     "nps_official":   "NPS Official Data",
     "google_ratings": "Review Volume Proxy",
     "review_nlp":     "Review Text NLP",
 }
-
 MONTHS = [
     "January","February","March","April","May","June",
     "July","August","September","October","November","December"
@@ -463,7 +444,6 @@ with st.sidebar:
         help="Enter any SoCal address as your trip starting point"
     )
 
-    # Geocode and validate on input change
     origin_lat, origin_lng, origin_display = 34.0522, -118.2437, "Los Angeles, CA"
     geo_error = None
 
@@ -557,7 +537,7 @@ try:
 except Exception:
     pass
 
-# ── Results ───────────────────────────────────────────────────────────────────
+# ── Search trigger ────────────────────────────────────────────────────────────
 if search:
     if not crowd_levels:
         st.warning("Please select at least one crowd level.")
@@ -584,7 +564,7 @@ if st.session_state.get("selected"):
         st.session_state["selected"] = None
         st.rerun()
 
-    detail = get_location_detail(selected_name)
+    detail     = get_location_detail(selected_name)
     all_reviews = get_all_reviews(selected_name, limit=20)
 
     st.markdown(f"""
@@ -596,7 +576,6 @@ if st.session_state.get("selected"):
     </div>
     """, unsafe_allow_html=True)
 
-    # stat row
     acts_str = " &nbsp;·&nbsp; ".join(detail.get("activities") or [])
     rating   = detail.get("rating") or detail.get("yelp_stars")
     cost     = detail.get("cost_label") or "Free"
@@ -611,8 +590,11 @@ if st.session_state.get("selected"):
     """, unsafe_allow_html=True)
 
     if not all_reviews:
-        st.markdown("<div class='empty-state'><div class='icon'>📭</div><p>No reviews available for this location.</p></div>",
-                    unsafe_allow_html=True)
+        st.markdown(
+            "<div class='empty-state'><div class='icon'>📭</div>"
+            "<p>No reviews available for this location.</p></div>",
+            unsafe_allow_html=True
+        )
     else:
         st.markdown(f"<div class='section-label'>— {len(all_reviews)} Reviews —</div>",
                     unsafe_allow_html=True)
@@ -627,9 +609,7 @@ if st.session_state.get("selected"):
                 <div style='display:flex; justify-content:space-between;
                             margin-bottom:0.5rem; align-items:center;'>
                     <span style='color:#4fc3f7; font-size:0.75rem; font-weight:600;
-                                 text-transform:uppercase; letter-spacing:0.06em;'>
-                        {platform}
-                    </span>
+                                 text-transform:uppercase; letter-spacing:0.06em;'>{platform}</span>
                     <span style='font-size:0.8rem;'>{stars}</span>
                 </div>
                 <div style='color:#c8e6f5; font-size:0.88rem; line-height:1.65;
@@ -674,20 +654,16 @@ elif "results" in st.session_state:
                 crowd_badge = (f"<span class='badge {CROWD_BADGE.get(crowd, 'badge')}'>"
                                f"{CROWD_EMOJI.get(crowd, '')} {html.escape(crowd)}</span>")
                 rating_str  = f"&#11088; {rating}" if rating else ""
-                crowd_detail = (f"{crowd_signal:,} visitors/mo"
-                                if r.get("crowd_source") == "nps_official" and crowd_signal
-                                else "")
+                crowd_detail = (
+                    f"{crowd_signal:,} visitors/mo"
+                    if r.get("crowd_source") == "nps_official" and crowd_signal else ""
+                )
                 crowd_detail_html = (
                     f"&nbsp;&middot;&nbsp;<em style='color:#4a7a94;font-size:0.75rem;'>"
                     f"{crowd_detail}</em>" if crowd_detail else ""
                 )
 
-                reviews = get_reviews(name, limit=1)
-                review_html = ""
-                if reviews:
-                    snippet = html.escape(reviews[0]["text"][:160].rstrip()) + "&hellip;"
-                    review_html = f"<div class='review-box'>&ldquo;{snippet}&rdquo;</div>"
-
+                # ── FIX: get_reviews called once only ─────────────────────────
                 reviews = get_reviews(name, limit=1)
                 review_html = ""
                 if reviews:
