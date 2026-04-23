@@ -1,0 +1,202 @@
+[
+  {
+    "query_id": 1,
+    "origin": "Los Angeles, CA",
+    "month": "March",
+    "activities": ["Hiking"],
+    "max_distance_miles": 120,
+    "min_temp_f": 65,
+    "crowd_levels": ["Low", "Moderate"],
+    "min_rating": 4.0
+  },
+  {
+    "query_id": 2,
+    "origin": "Santa Monica, CA",
+    "month": "April",
+    "activities": ["Beach"],
+    "max_distance_miles": 80,
+    "min_temp_f": 60,
+    "crowd_levels": ["Low"],
+    "min_rating": 4.0
+  },
+  {
+    "query_id": 3,
+    "origin": "Irvine, CA",
+    "month": "November",
+    "activities": ["Nature"],
+    "max_distance_miles": 100,
+    "min_temp_f": 55,
+    "crowd_levels": ["Low", "Moderate"],
+    "min_rating": 4.0
+  },
+  {
+    "query_id": 4,
+    "origin": "3800 S Figueroa St, Los Angeles, CA",
+    "month": "May",
+    "activities": ["Park"],
+    "max_distance_miles": 80,
+    "min_temp_f": 65,
+    "crowd_levels": ["Low", "Moderate", "High"],
+    "min_rating": 4.0
+  },
+  {
+    "query_id": 5,
+    "origin": "San Diego, CA",
+    "month": "October",
+    "activities": ["Camping"],
+    "max_distance_miles": 150,
+    "min_temp_f": 55,
+    "crowd_levels": ["Low", "Moderate"],
+    "min_rating": 4.0
+  },
+  {
+    "query_id": 6,
+    "origin": "Anaheim, CA",
+    "month": "December",
+    "activities": ["Attraction"],
+    "max_distance_miles": 100,
+    "min_temp_f": 55,
+    "crowd_levels": ["Low", "Moderate", "High"],
+    "min_rating": 4.0
+  },
+  {
+    "query_id": 7,
+    "origin": "Long Beach, CA",
+    "month": "June",
+    "activities": ["Recreation"],
+    "max_distance_miles": 120,
+    "min_temp_f": 65,
+    "crowd_levels": ["Low", "Moderate"],
+    "min_rating": 4.0
+  },
+  {
+    "query_id": 8,
+    "origin": "Pasadena, CA",
+    "month": "January",
+    "activities": ["Cultural"],
+    "max_distance_miles": 60,
+    "min_temp_f": 50,
+    "crowd_levels": ["Low", "Moderate", "High"],
+    "min_rating": 4.0
+  },
+  {
+    "query_id": 9,
+    "origin": "Glendale, CA",
+    "month": "February",
+    "activities": ["Hiking", "Nature"],
+    "max_distance_miles": 120,
+    "min_temp_f": 55,
+    "crowd_levels": ["Low"],
+    "min_rating": 4.0
+  },
+  {
+    "query_id": 10,
+    "origin": "Santa Barbara, CA",
+    "month": "September",
+    "activities": ["Beach"],
+    "max_distance_miles": 100,
+    "min_temp_f": 70,
+    "crowd_levels": ["Low", "Moderate"],
+    "min_rating": 4.0
+  },
+  {
+    "query_id": 11,
+    "origin": "Burbank, CA",
+    "month": "July",
+    "activities": ["Park"],
+    "max_distance_miles": 100,
+    "min_temp_f": 75,
+    "crowd_levels": ["Low", "Moderate", "High"],
+    "min_rating": 4.0
+  },
+  {
+    "query_id": 12,
+    "origin": "Torrance, CA",
+    "month": "April",
+    "activities": ["Nature", "Hiking"],
+    "max_distance_miles": 120,
+    "min_temp_f": 60,
+    "crowd_levels": ["Low"],
+    "min_rating": 4.2
+  },
+  {
+    "query_id": 13,
+    "origin": "Riverside, CA",
+    "month": "March",
+    "activities": ["Camping"],
+    "max_distance_miles": 160,
+    "min_temp_f": 55,
+    "crowd_levels": ["Low", "Moderate", "High"],
+    "min_rating": 4.0
+  },
+  {
+    "query_id": 14,
+    "origin": "West Hollywood, CA",
+    "month": "August",
+    "activities": ["Attraction"],
+    "max_distance_miles": 90,
+    "min_temp_f": 70,
+    "crowd_levels": ["Moderate"],
+    "min_rating": 4.0
+  },
+  {
+    "query_id": 15,
+    "origin": "Downtown Los Angeles, CA",
+    "month": "May",
+    "activities": ["Cultural"],
+    "max_distance_miles": 80,
+    "min_temp_f": 60,
+    "crowd_levels": ["Low", "Moderate"],
+    "min_rating": 4.0
+  },
+  {
+    "query_id": 16,
+    "origin": "San Bernardino, CA",
+    "month": "April",
+    "activities": ["Recreation"],
+    "max_distance_miles": 100,
+    "min_temp_f": 60,
+    "crowd_levels": ["Low", "Moderate", "High"],
+    "min_rating": 4.0
+  },
+  {
+    "query_id": 17,
+    "origin": "Huntington Beach, CA",
+    "month": "December",
+    "activities": ["Beach"],
+    "max_distance_miles": 120,
+    "min_temp_f": 55,
+    "crowd_levels": ["Low"],
+    "min_rating": 4.0
+  },
+  {
+    "query_id": 18,
+    "origin": "Malibu, CA",
+    "month": "June",
+    "activities": ["Nature"],
+    "max_distance_miles": 150,
+    "min_temp_f": 70,
+    "crowd_levels": ["Low", "Moderate"],
+    "min_rating": 4.0
+  },
+  {
+    "query_id": 19,
+    "origin": "Ventura, CA",
+    "month": "October",
+    "activities": ["Hiking"],
+    "max_distance_miles": 140,
+    "min_temp_f": 60,
+    "crowd_levels": ["Moderate"],
+    "min_rating": 4.2
+  },
+  {
+    "query_id": 20,
+    "origin": "Fullerton, CA",
+    "month": "January",
+    "activities": ["Park", "Nature"],
+    "max_distance_miles": 70,
+    "min_temp_f": 50,
+    "crowd_levels": ["Low", "Moderate", "High"],
+    "min_rating": 4.0
+  }
+]
