@@ -85,26 +85,38 @@ Clone the repo to access this data — it is not regenerated at runtime.
 
 ```
 SoCal-Context-Aware-Planner/
+│
 ├── src/
-│   ├── app.py                          # Streamlit GUI
+│   ├── app.py                      # Streamlit GUI
+│
 │   ├── graph/
-│   │   └── load_graph.py               # Loads data into Neo4j KG
+│   │   └── load_graph.py           # Loads data into Neo4j KG
+│
 │   ├── ingestion/
-│   │   ├── google_places.py            # Google Places ingestion
-│   │   ├── yelp_ingest.py              # Yelp business ingestion
-│   │   ├── yelp_reviews_ingest.py      # Yelp review ingestion
-│   │   ├── yelp_checkin_ingest.py      # Yelp check-in data
-│   │   ├── open_meteo.py               # Weather data ingestion
-│   │   └── nps_stats.py                # NPS crowd data ingestion
+│   │   ├── google_places.py        # Google Places ingestion
+│   │   ├── yelp_ingest.py          # Yelp business ingestion
+│   │   ├── yelp_reviews_ingest.py  # Yelp review ingestion
+│   │   ├── yelp_checkin_ingest.py  # Yelp check-in data
+│   │   ├── open_meteo.py           # Weather data ingestion
+│   │   └── nps_stats.py            # NPS crowd data ingestion
+│
 │   ├── processing/
-│   │   ├── entity_resolution.py        # Merge Google + Yelp locations
-│   │   ├── clean_google_places.py      # Data cleaning
-│   │   └── crowd_nlp.py                # NLP crowd detection from reviews
+│   │   ├── entity_resolution.py    # Merge Google + Yelp locations
+│   │   ├── clean_google_places.py  # Data cleaning
+│   │   └── crowd_nlp.py            # NLP crowd detection from reviews
+│
+│   ├── evaluation/
+│   │   ├── evaluate_nlp.py         # Crowd-level NLP evaluation (precision/recall/F1)
+│   │   ├── evaluate_constraints.py # End-to-end constraint satisfaction evaluation
+│   │   ├── evaluate_er.py          # Entity resolution accuracy evaluation
+│   │   ├── constraint_queries.json # Test queries for constraint evaluation
+│   │   ├── er_sample.json          # Sampled data for ER evaluation
+│   │   └── nlp_gold_labels.csv     # Manually labeled dataset (100 reviews)
 │
 ├── data/
-│   ├── raw/                            # Raw API responses (gitignored)
+│   ├── raw/                        # Raw API responses (gitignored)
 │   └── processed/
-│       └── entity_resolution/          # Resolved & merged location data
+│       └── entity_resolution/
 │           ├── merged_locations.json
 │           ├── google_only_locations.json
 │           ├── yelp_only_locations.json
@@ -112,7 +124,7 @@ SoCal-Context-Aware-Planner/
 │           └── nps_visitation.json
 │
 ├── requirements.txt
-├── .env                                # Neo4j credentials
+├── .env                            # Neo4j credentials
 └── README.md
 ```
 
@@ -333,5 +345,217 @@ Can be found in `requirements.txt`.
 Per the project proposal, system correctness is measured across three areas:
 
 1. **Entity Resolution Accuracy** — random sample of 50 Location nodes manually verified for correct cross-source mapping (Yelp ↔ Google ↔ NPS)
-2. **NLP Pipeline Precision/Recall** — 100 manually annotated reviews tested for constraint extraction (e.g. "overcrowded", "closed", "seasonal")
+2. **NLP Crowd Pipeline Precision/Recall** — 100 manually annotated reviews tested for crowd constraint extraction (e.g. "overcrowded", "not too busy")
 3. **Constraint Satisfaction Rate** — 20 randomly generated multi-hop queries verified that all returned destinations satisfy the temporal, weather, and activity constraints simultaneously
+
+All evaluations are **reproducible** and include **pre-labeled data**, so results can be generated directly without additional setup.
+
+---
+
+### Setup
+
+Ensure the following are configured:
+
+* Neo4j database is running
+* `.env` file contains:
+
+  * `NEO4J_URI`
+  * `NEO4J_USER`
+  * `NEO4J_PASSWORD`
+* Knowledge graph has already been loaded:
+
+```bash
+python src/graph/load_graph.py
+```
+
+---
+
+### 1. Entity Resolution Evaluation
+
+Evaluates correctness of merging duplicate locations.
+
+#### Run
+
+```bash
+python src/evaluation/evaluate_er.py
+```
+
+You will see a menu:
+
+```
+1 → Sample locations
+2 → Compute accuracy
+```
+
+---
+
+#### What to do
+
+Select option 2:
+
+```
+Enter 1 or 2: 2
+```
+
+---
+
+#### Note
+
+* Sample file:
+
+```
+src/evaluation/er_sample.json
+```
+
+* This file should already contain manual labels:
+
+```json
+"is_correct": true/false
+```
+
+---
+
+#### Output
+
+* Total samples
+* Correct matches
+* Accuracy %
+
+---
+
+### 2. NLP Crowd Evaluation
+
+Evaluates how well the system extracts crowd levels from unstructured review text.
+
+#### Run
+
+```bash
+python src/evaluation/evaluate_nlp.py
+```
+
+You will see a menu:
+
+```
+1 → Create random 100-review annotation CSV
+2 → Evaluate labeled CSV (precision / recall / F1)
+```
+
+---
+
+#### What to do
+
+ **Select option 2**
+
+```
+Enter 1 or 2: 2
+```
+
+---
+
+#### Note
+
+* The dataset has already been manually labeled
+* File used:
+
+```
+src/evaluation/nlp_gold_labels.csv
+```
+
+You do **NOT** need to run option 1 unless you want to regenerate a new dataset.
+
+---
+
+#### Output
+
+The script prints:
+
+* Precision
+* Recall
+* F1-score
+* Confusion matrix
+
+---
+
+### 3. Constraint Satisfaction Evaluation 
+
+Evaluates whether the system returns results that satisfy **user constraints**.
+
+---
+
+#### Run
+
+```bash
+python src/evaluation/evaluate_constraints.py
+```
+
+---
+
+#### What it does
+
+For each query:
+
+1. Converts address → latitude/longitude (geocoding)
+2. Queries the knowledge graph
+3. Retrieves top recommendation
+4. Checks constraints:
+
+   * Activity match
+   * Temperature requirement
+   * Crowd level requirement
+   * Distance limit
+
+---
+
+#### Output
+
+Example:
+
+```
+Total queries: 20
+Satisfied queries: 17
+Constraint Satisfaction Rate: 85.00%
+```
+
+Also generates:
+
+```
+src/evaluation/constraint_eval_results.csv
+```
+
+---
+
+#### Failure Cases
+
+The script prints failed queries and shows which constraints were violated:
+
+```
+activity_ok=False, temp_ok=False, crowd_ok=False, distance_ok=False
+```
+
+---
+
+If no results are returned:
+
+> "No destinations matched your constraints"
+
+This means:
+
+* The query constraints were **too strict**, OR
+* No matching data exists in the knowledge graph
+
+---
+
+### Reproducibility
+
+* All evaluation scripts are deterministic
+* Pre-labeled datasets are included
+
+---
+
+### Evaluation Summary
+
+- ER accuracy: 100%
+- NLP classification accuracy: 83%
+- Constraint satisfaction rate: 85%
+
+
